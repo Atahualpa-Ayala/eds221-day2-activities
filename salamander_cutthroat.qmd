@@ -11,9 +11,12 @@ execute:
 library(janitor)
 library(tidyverse)
 library(here)
+library(dplyr)
+
 
 
 ```
+### Read in the data
 
 ```{r}
 mark_verts <- read.csv(here("data", "AS00601.csv"))
@@ -21,11 +24,48 @@ glimpse(mack_verts)
 
 ```
 
-```{r}
-mark_verts
-mark_verts <- clean_names(mark_verts)
+### A bit of wrangling $ exploring
 
-mark_verts$reach[5]
+```{r}
+mc_wt_5 <- mark_verts$WEIGHT[5]
+mc_wt_5
+
+mc_length_8_20 <- mark_verts$LENGTH1[8:20]
+mc_length_8_20
+
+mc_dates <- mark_verts$SAMPLEDATE
+mc_dates
+```
+### make a salamander subset
+```{r}
+mc_salamaders <- filter(mark_verts, SPECIES == "DITE" )
+mc_salamaders
 
 ```
+
+### Make a scatterplot of salamander length x weight
+
+```{r}
+```
+
+
+```{r}
+salamander_plot <- ggplot(mc_salamaders, aes(x=LENGTH1, y=WEIGHT))+
+  geom_point(shape=18, color="green", )+
+  geom_smooth(linetype="dashed")+
+  labs(title="Pacific Giant Salamanders length x weight ",
+       subtitle = "species: Dicamptodon tenebrosus", 
+       x="weigth (gr)",
+       y="length (mm)",
+       caption ="Source: Gregory, S.V. and I. Arismendi, 2020")
+salamander_plot
+
+salamander_size <- ggsave( "salamander_size.jpg" , plot= salamander_plot, dpi = 300)
+```
+
+
+```{r}
+
+```
+
 
