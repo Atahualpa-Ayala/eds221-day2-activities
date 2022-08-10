@@ -5,9 +5,7 @@ format: html
 editor: visual
 ---
 
-
 ### 1-Create a vector
-
 
 ```{r}
 vec_1 <- c(2, 5, 9, 10, 8, 12, 1, 0)
@@ -27,7 +25,7 @@ vec_1_char <- as.character(vec_1)
 
 ```
 
-### 2 Creat a vector 
+### 2 Creat a vector
 
 ```{r}
 vec_2 <- c(town = "Santa Barbara", location = "Rincon", swell = "south")
@@ -35,19 +33,11 @@ vec_2 <- c(town = "Santa Barbara", location = "Rincon", swell = "south")
 class(vec_2)
 length(vec_2)
 
-vec_2_e2 <- vec_2["location"]
+vec_2_e2 <- vec_2[2]
 ```
 
 ### 3 Create a data frame in R, index
-```{r}
-region <- c("A", "B", "A", "D")
-species <- c("otter", "great white", "sea lion", "gray whale")
-count <- c(12, 2, 36, 6)
-df_1 <- data.frame(region, species, count)
 
-class(df_1)
-class(df_1$species)
-maximum_value_count <- max(df_1$count)
+```{r}
 
 ```
-

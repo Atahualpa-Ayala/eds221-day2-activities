@@ -62,10 +62,23 @@ salamander_plot
 
 salamander_size <- ggsave( "salamander_size.jpg" , plot= salamander_plot, dpi = 300)
 ```
-
+### Make a cutthroat plot
 
 ```{r}
+mc_salamaders_oncl <- filter(mark_verts, SPECIES == "ONCL" )
+mc_salamaders_oncl
 
+salamander_plot_oncl <- ggplot(mc_salamaders_oncl, aes(x=LENGTH1, y=WEIGHT, color=REACH))+
+  geom_point(shape=10 )+
+  geom_smooth(linetype="dashed")+
+  labs(title="ONCL Salamanders length x weight ",
+       subtitle = "species: ONCL", 
+       x="weigth (gr)",
+       y="length (mm)",
+       caption ="Source: Gregory, S.V. and I. Arismendi, 2020")
+salamander_plot_oncl
+
+cutthroat_size <- ggsave( "cutthroat_size.jpg" , plot= salamander_plot, dpi = 300)
 ```
 
 
