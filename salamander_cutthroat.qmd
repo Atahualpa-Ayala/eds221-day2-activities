@@ -1,0 +1,31 @@
+---
+title: "Wild data"
+author: "Atahualpa"
+format: html
+editor: visual
+execute: 
+  error: false
+  warning: false
+---
+```{r}
+library(janitor)
+library(tidyverse)
+library(here)
+
+
+```
+
+```{r}
+mark_verts <- read.csv(here("data", "AS00601.csv"))
+glimpse(mack_verts)
+
+```
+
+```{r}
+mark_verts
+mark_verts <- clean_names(mark_verts)
+
+mark_verts$reach[5]
+
+```
+
